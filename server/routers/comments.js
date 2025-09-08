@@ -11,9 +11,10 @@ router.get('/', async (req, res) => {
 
     const ids = studentIds.split(',').map(Number);
     const comments = await pool.query(
-      'SELECT * FROM comparisons WHERE student_ids && $1::int[] ORDER BY created_at DESC',
-      [ids]
-    );
+  'SELECT * FROM comments WHERE student_id = ANY($1::int[]) ORDER BY created_at DESC',
+  [ids]
+);
+
     res.json(comments.rows);
   } catch (err) {
     res.status(500).json({ error: err.message });
