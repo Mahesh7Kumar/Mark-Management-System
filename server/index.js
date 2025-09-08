@@ -10,7 +10,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "*",
+    origin: "https://mark-management-system-4wvt.vercel.app",
     credentials: true,
   })
 );
