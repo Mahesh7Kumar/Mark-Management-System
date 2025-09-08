@@ -253,7 +253,7 @@ export default function StudentPage() {
             savedComments.map((c, idx) => (
               <Card key={idx} className="p-3 mb-2 bg-gray-700 border border-gray-600 text-white">
                 <p><span className="font-bold">Students:</span> {c.students}</p>
-                <p><span className="font-bold">Comment:</span> {c.comments}</p>
+                <p><span className="font-bold">Comment:</span> {c.comment}</p>
               </Card>
             ))
           ) : (
