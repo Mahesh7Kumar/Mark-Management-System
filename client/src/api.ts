@@ -1,7 +1,8 @@
 const BASE_URL = import.meta.env.VITE_API_URL; 
 
 export async function fetchStudents(classNum: number, filter?: string) {
-  const url = `${BASE_URL}/api/students/${classNum}${filter ? `?filter=${filter}` : ''}`;
+  let url = `${BASE_URL}/students/${classNum}`;
+  if (filter) url += `?filter=${filter}`;
   const res = await fetch(url);
   return res.json();
 }
@@ -12,8 +13,7 @@ export async function fetchStudentById(studentId: number) {
 }
 
 export async function fetchComments(studentIds: number[]) {
-  const url = `${BASE_URL}/api/comments?studentIds=${studentIds.join(',')}`;
-  const res = await fetch(url);
+  const res = await fetch(`${BASE_URL}/comments?studentIds=${studentIds.join(",")}`);
   return res.json();
 }
 
