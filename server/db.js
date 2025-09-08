@@ -4,9 +4,10 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const { Pool } = pkg;
+
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: { rejectUnauthorized: false } // Required for Render
+  connectionString: process.env.DATABASE_URL, // must be set in Render environment
+  ssl: { rejectUnauthorized: false }         // required for Render
 });
 
 pool.connect()
