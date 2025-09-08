@@ -8,7 +8,13 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: [
+    "https://mark-management-system-ruddy.vercel.app",
+    "https://mark-management-system-4wvt.vercel.app" 
+  ],
+  credentials: true,
+}));
 app.use(express.json());
 
 app.use('/api/students', studentRoutes);
