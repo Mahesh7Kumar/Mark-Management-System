@@ -9,10 +9,10 @@ CREATE TABLE students (
 );
 
 
-CREATE TABLE IF NOT EXISTS comparisons (
+CREATE TABLE comments (
     id SERIAL PRIMARY KEY,
-    student_ids INT[],
-    comment TEXT,
+    student_id INT NOT NULL REFERENCES students(id) ON DELETE CASCADE,
+    comment TEXT NOT NULL,
     created_at TIMESTAMP DEFAULT NOW()
 );
 
