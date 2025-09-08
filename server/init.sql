@@ -1,12 +1,13 @@
-CREATE TABLE IF NOT EXISTS students (
+CREATE TABLE students (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(100),
-    class INT,
-    physics INT,
-    chemistry INT,
-    english INT,
-    tamil INT
+    class INT NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    physics INT CHECK (physics >= 0 AND physics <= 100),
+    chemistry INT CHECK (chemistry >= 0 AND chemistry <= 100),
+    english INT CHECK (english >= 0 AND english <= 100),
+    tamil INT CHECK (tamil >= 0 AND tamil <= 100)
 );
+
 
 CREATE TABLE IF NOT EXISTS comparisons (
     id SERIAL PRIMARY KEY,
