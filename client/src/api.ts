@@ -8,7 +8,7 @@ export async function fetchStudents(classNum: number, filter?: string) {
 }
 
 export async function fetchStudentById(studentId: number) {
-  const res = await fetch(`${BASE_URL}/students/student/${studentId}`);
+  const res = await fetch(`${BASE_URL}/api/students/student/${studentId}`);
   return res.json();
 }
 
@@ -20,7 +20,7 @@ export async function fetchComments(studentIds: number[]) {
 }
 
 export async function addComment(studentIds: number[], comment: string) {
-  const res = await fetch(`${BASE_URL}/comments`, {
+  const res = await fetch(`${BASE_URL}/api/comments`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ student_ids: studentIds, comment }),
