@@ -198,7 +198,7 @@ export default function ClassDashboard({ classNum }: ClassDashboardProps) {
                   <TableRow
                     key={s.id}
                     className="cursor-pointer hover:bg-slate-800 transition"
-                    onClick={() => navigate(`/class/${classNum}/student/${s.id}`)}
+                    onClick={() => navigate(`/class/${classNum}/students/student/${s.id}`)}
                   >
                     <TableCell className="font-medium text-white">{s.name}</TableCell>
                     <TableCell className="text-white">{s.physics}</TableCell>
